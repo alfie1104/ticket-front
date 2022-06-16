@@ -1,6 +1,6 @@
 function Hero() {
   return (
-    <section className="text-center bg-gradient-to-b from-gray-900 to-gray-700 p-8 h-[80vh] flex flex-col flex-1">
+    <section className="text-center bg-gradient-to-b from-gray-900 to-gray-700 p-8 h-full flex flex-col flex-1">
       <div className="text-8xl text-gray-700 p-10 bg-gradient-to-br from-yellow-400 to-yellow-200 w-[500px] m-auto rounded-md">
         Ticekt
       </div>

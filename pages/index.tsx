@@ -1,10 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import { Fragment } from "react";
-import Footer from "../components/home-page/footer";
 import Hero from "../components/home-page/hero";
-import SurveyPage from "./survey";
 
 const HomePage: NextPage = () => {
   return (
@@ -17,7 +14,6 @@ const HomePage: NextPage = () => {
         />
       </Head>
       <Hero />
-      <Footer />
     </Fragment>
   );
 };
