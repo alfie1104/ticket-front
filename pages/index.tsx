@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Fragment } from "react";
+import Footer from "../components/home-page/footer";
 import Hero from "../components/home-page/hero";
 
 const HomePage: NextPage = () => {
@@ -14,8 +15,10 @@ const HomePage: NextPage = () => {
         />
       </Head>
       <Hero />
+      <Footer />
     </Fragment>
   );
 };
 
 export default HomePage;
+//className="h-[75vh] overflow-auto"
