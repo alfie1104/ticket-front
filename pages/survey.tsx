@@ -53,29 +53,32 @@ const questions = [
 ];
 
 function SurveyPage() {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [questionInfo, setQuestionInfo] = useState<{
+    questionId: number;
+    direction: "forward" | "backward";
+  }>({ questionId: 0, direction: "forward" });
 
   const handleScrollUp = (e: React.MouseEvent) => {
     e.preventDefault();
-    setCurrentQuestion((prev) => {
-      let next = prev - 1;
-      if (next < 0) {
-        next = prev;
+    setQuestionInfo((prev) => {
+      let nextId = prev.questionId - 1;
+      if (nextId < 0) {
+        nextId = prev.questionId;
       }
 
-      return next;
+      return { questionId: nextId, direction: "backward" };
     });
   };
 
   const handleScrollDown = (e: React.MouseEvent) => {
     e.preventDefault();
-    setCurrentQuestion((prev) => {
-      let next = prev + 1;
-      if (next > questions.length - 1) {
-        next = prev;
+    setQuestionInfo((prev) => {
+      let nextId = prev.questionId + 1;
+      if (nextId > questions.length - 1) {
+        nextId = prev.questionId;
       }
 
-      return next;
+      return { questionId: nextId, direction: "forward" };
     });
   };
   return (
@@ -84,18 +87,18 @@ function SurveyPage() {
         <title>Survey | Ticket to heaven</title>
         <meta name="description" content="ticket description" />
       </Head>
-      <div className="flex flex-col items-center justify-start">
-        {/* <h1 className="text-3xl font-bold underline">Survey</h1> */}
-        <div className="mt-5 flex flex-col items-center justify-start">
-          <ScrollBox>
-            <h1>Q :{questions[currentQuestion].question}</h1>
-            <div className="flex flex-col items-center justify-center">
-              {questions[currentQuestion].answers.map((answer) => (
-                <button key={answer}>{answer}</button>
-              ))}
-            </div>
-          </ScrollBox>
-        </div>
+      <div className="flex flex-col items-center justify-center h-[100vh] overflow-hidden">
+        <ScrollBox
+          id={questionInfo.questionId}
+          direction={questionInfo.direction}
+        >
+          <h1>Q :{questions[questionInfo.questionId].question}</h1>
+          <div className="flex flex-col items-center justify-center">
+            {questions[questionInfo.questionId].answers.map((answer) => (
+              <button key={answer}>{answer}</button>
+            ))}
+          </div>
+        </ScrollBox>
       </div>
       <div className="absolute bottom-12 right-12 flex items-center flex-col">
         <FontAwesomeIcon

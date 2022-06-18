@@ -67,7 +67,7 @@ const MainNavigation = () => {
     <nav className="w-full flex flex-row md:justify-center justify-between items-center p-4 bg-gray-700">
       <div className="md:ml-14 ml-8 mr-auto justify-center items-center">
         <Link href="/">
-          <a className="text-xl text-gray-700 py-2 px-4 bg-gradient-to-br from-yellow-400 to-yellow-200 w-[500px] rounded-md m-4 hover:text-gray-400 transition-all">
+          <a className="text-xl text-gray-700 py-2 px-4 bg-gradient-to-br from-yellow-500 to-yellow-200 w-[500px] rounded-md m-4 hover:text-gray-400 transition-all">
             Ticekt
           </a>
           {/* <Image
