@@ -1,4 +1,8 @@
-import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleDown,
+  faAngleUp,
+  faArrowRight,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Head from "next/head";
 import React, { useState } from "react";
@@ -104,20 +108,40 @@ function SurveyPage() {
           id={questionInfo.questionId}
           direction={questionInfo.direction}
         >
-          <h1>
-            Q{questionInfo.questionId + 1} :
-            {questions[questionInfo.questionId].question}
-          </h1>
-          <div className="flex flex-col items-center justify-center">
+          <div className="mb-5">
+            <span className="text-blue-700 text-base font-semibold">
+              {questionInfo.questionId + 1}
+            </span>
+            <FontAwesomeIcon
+              icon={faArrowRight}
+              size="sm"
+              className="text-blue-700 mx-2"
+            />
+            <span className="text-xl font-semibold text-gray-800">
+              {questions[questionInfo.questionId].question}
+            </span>
+          </div>
+          <div className="flex flex-col items-center justify-center w-full">
             {questions[questionInfo.questionId].answers.map((answer, index) => (
-              <button
+              <div
                 key={answer}
+                className={`max-w-[60%] min-w-[20%] cursor-pointer bg-blue-500 bg-opacity-20 border border-blue-800 rounded-sm mb-3 text-blue-800 font-semibold hover:bg-opacity-30 transition-all`}
                 onClick={(e: React.MouseEvent) =>
                   handleClickAnswer(e, questionInfo.questionId, index)
                 }
               >
-                {answer}
-              </button>
+                <span
+                  className={`${
+                    answers[questionInfo.questionId] !== undefined &&
+                    answers[questionInfo.questionId] === index
+                      ? "bg-green-100"
+                      : "bg-gray-50"
+                  }  py-1 px-3 m-1 text-base inline-block border rounded-sm border-blue-800`}
+                >
+                  {index + 1}
+                </span>
+                <span>{answer}</span>
+              </div>
             ))}
           </div>
           {questionInfo.questionId === questions.length - 1 &&
