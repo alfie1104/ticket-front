@@ -46,7 +46,11 @@ const NavItem = ({
   classProps?: string;
 }) => {
   return (
-    <li className={`mx-4 ${classProps ? `${classProps}` : ""}`}>
+    <li
+      className={`mx-4 ${
+        classProps ? `${classProps}` : ""
+      } hover:text-yellow-500`}
+    >
       <Link
         href={path}
         className={`mx-2 text-base font-medium ${
@@ -64,7 +68,7 @@ const MainNavigation = () => {
   const { pathname } = useRouter();
 
   return (
-    <nav className="w-full flex flex-row md:justify-center justify-between items-center p-4 bg-gray-700">
+    <nav className="w-full flex flex-row md:justify-center justify-between items-center p-4 fixed z-10 bg-gray-900 bg-opacity-10">
       <div className="md:ml-14 ml-8 mr-auto justify-center items-center">
         <Link href="/">
           <a className="text-xl text-gray-700 py-2 px-4 bg-gradient-to-br from-yellow-500 to-yellow-200 w-[500px] rounded-md m-4 hover:text-gray-400 transition-all">
@@ -109,7 +113,7 @@ const MainNavigation = () => {
         {toggleMenu && (
           <ul
             className="z-10 fixed -top-0 -right-2 p-3 max-w-[70vw] min-w[30vw] h-screen shadow-2xl md:hidden
-          flex flex-col justify-start items-end rounded-md text-white bg-slate-700 bg-opacity-80 animate-slide-in
+          flex flex-col justify-start items-end rounded-md text-white bg-gray-900 bg-opacity-80 animate-slide-in
           py-20"
           >
             {linkList.map((item) => (

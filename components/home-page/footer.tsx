@@ -2,19 +2,17 @@ import Link from "next/link";
 
 function Footer() {
   return (
-    <div className="w-full flex md:justify-center justify-between items-center flex-col p-4 bg-gray-600 h-auto">
+    <div className="w-full flex md:justify-center justify-between items-center flex-col p-4 bg-gray-900 bg-opacity-10 fixed bottom-0 z-10">
       <div className="w-full flex sm:flex-row flex-col justify-between items-center my-4">
-        <div className="flex flex-[0.5] justify-center items-center">
-          Ticket Logo
-        </div>
+        <div className="flex flex-[0.5] justify-center items-center"></div>
         <div className="flex flex-1 justify-evenly items-center flex-wrap sm:mt-0 mt-5 w-full">
-          <p className="text-white text-base text-center mx-2 cursor-pointer">
+          <p className="text-white text-base text-center mx-2 cursor-pointer hover:text-yellow-500">
             <Link href={"/"}>Home</Link>
           </p>
-          <p className="text-white text-base text-center mx-2 cursor-pointer">
+          <p className="text-white text-base text-center mx-2 cursor-pointer hover:text-yellow-500">
             <Link href={"/survey"}>Survey</Link>
           </p>
-          <p className="text-white text-base text-center mx-2 cursor-pointer">
+          <p className="text-white text-base text-center mx-2 cursor-pointer hover:text-yellow-500">
             <Link href={"/birth"}>Birth</Link>
           </p>
         </div>
