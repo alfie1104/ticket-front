@@ -120,13 +120,16 @@ function SurveyPage() {
               </button>
             ))}
           </div>
+          {questionInfo.questionId === questions.length - 1 &&
+            !answers.includes(undefined) && (
+              <button
+                className="mt-5 cursor-pointer bg-blue-700 text-gray-100 p-2 text-lg font-semibold rounded-md"
+                onClick={getLottoNumber}
+              >
+                Get Lucky Numbers
+              </button>
+            )}
         </ScrollBox>
-        {questionInfo.questionId === questions.length - 1 &&
-          !answers.includes(undefined) && (
-            <button className="mt-5" onClick={getLottoNumber}>
-              Get Lucky Numbers
-            </button>
-          )}
       </div>
       <div className="absolute bottom-12 right-12 flex items-center flex-col">
         <FontAwesomeIcon
