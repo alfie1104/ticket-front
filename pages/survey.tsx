@@ -82,11 +82,11 @@ function SurveyPage() {
       return newArray;
     });
 
-    if (questionId === questions.length - 1 && !answers.includes(undefined)) {
-      getLottoNumber();
-    } else {
-      handleScrollDown(e);
-    }
+    // if (questionId === questions.length - 1 && !answers.includes(undefined)) {
+    //   getLottoNumber();
+    // } else {
+    handleScrollDown(e);
+    // }
   };
 
   const getLottoNumber = () => {
