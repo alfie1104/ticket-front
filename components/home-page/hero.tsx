@@ -30,6 +30,9 @@ function Hero() {
         layout="fill" //부모요소의 position이 relative일 때, 이미지가 부모 요소만큼 늘어나게 됨
         objectFit="cover" //배경 이미지가 비율을 유지하면서 늘어날 수 있게 설정
         objectPosition={"center"} //이미지 위치를 중앙으로 설정
+        style={{
+          pointerEvents: "none",
+        }}
       />
       <p
         //className="relative text-6xl text-gray-200 bg-gray-900 bg-opacity-50 px-10 py-5 hover:text-yellow-500 cursor-pointer transition-all"
