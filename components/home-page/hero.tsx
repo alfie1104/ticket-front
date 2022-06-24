@@ -32,10 +32,14 @@ function Hero() {
         objectPosition={"center"} //이미지 위치를 중앙으로 설정
       />
       <p
-        className="relative text-6xl text-gray-200 bg-gray-900 bg-opacity-50 px-10 py-5 hover:text-yellow-500 cursor-pointer transition-all"
+        //className="relative text-6xl text-gray-200 bg-gray-900 bg-opacity-50 px-10 py-5 hover:text-yellow-500 cursor-pointer transition-all"
+        className="relative text-gray-200 px-10 py-5 hover:text-yellow-500 cursor-pointer transition-all text-center "
         onClick={handleClickMain}
       >
-        지구의 위치와 나의 컨디션으로 만들어진 우주적 로또번호
+        <span className="text-8xl block mb-10 font-bold">
+          My Universe Numbers
+        </span>
+        <span className="text-4xl">우주와 나를 연결하는 여섯개의 번호</span>
       </p>
     </section>
   );

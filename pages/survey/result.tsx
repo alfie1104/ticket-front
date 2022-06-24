@@ -38,7 +38,7 @@ function SurveyResultPage() {
   return (
     <>
       <Head>
-        <title>Survey Result | Ticket to heaven</title>
+        <title>Survey Result | 6Numbers</title>
         <meta name="description" content="번호 생성 결과" />
       </Head>
       <div className="bg-gray-900 w-full h-[100vh] flex flex-col items-center justify-center">

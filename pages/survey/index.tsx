@@ -111,8 +111,8 @@ function SurveyPage() {
   return (
     <>
       <Head>
-        <title>Survey | Ticket to heaven</title>
-        <meta name="description" content="ticket description" />
+        <title>Survey | 6Numbers</title>
+        <meta name="description" content="사용자 설문기반 로또 번호 생성" />
       </Head>
       <div className="flex flex-col items-center justify-center h-[100vh] overflow-hidden">
         <ScrollBox

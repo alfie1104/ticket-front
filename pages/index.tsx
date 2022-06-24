@@ -8,10 +8,10 @@ const HomePage: NextPage = () => {
   return (
     <Fragment>
       <Head>
-        <title>Ticket to heaven</title>
+        <title>6Numbers</title>
         <meta
           name="description"
-          content="천국으로 가는 티켓. 사용자 입력 및 확률을 이용한 로또 번호 생성기"
+          content="우주와 나를 연결하는 여섯개의 번호. 로또. 행운번호."
         />
       </Head>
       <Hero />

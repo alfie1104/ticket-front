@@ -9,7 +9,7 @@ import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 const linkList = [
   { title: "Home", path: "/" },
   { title: "Survey", path: "/survey" },
-  { title: "Birth", path: "/birth" },
+  //{ title: "Birth", path: "/birth" },
 ];
 
 const logoPath = "/images/logo.png";
@@ -69,21 +69,7 @@ const MainNavigation = () => {
 
   return (
     <nav className="w-full flex flex-row md:justify-center justify-between items-center p-4 fixed z-10 bg-gray-900 bg-opacity-10">
-      <div className="md:ml-14 ml-8 mr-auto justify-center items-center">
-        <Link href="/">
-          <a className="text-xl text-gray-700 py-2 px-4 bg-gradient-to-br from-yellow-500 to-yellow-200 w-[500px] rounded-md m-4 hover:text-gray-400 transition-all">
-            Ticekt
-          </a>
-          {/* <Image
-            src={logoPath}
-            alt="logo"
-            width={80}
-            height={80}
-            layout="responsive"
-            className="w-20 md:w-32 rounded-2xl -rotate-6 hover:rotate-0 transition-transform"
-          /> */}
-        </Link>
-      </div>
+      <div className="md:ml-14 ml-8 mr-auto justify-center items-center"></div>
       <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
         {linkList.map((item) => (
           <NavItem
