@@ -5,8 +5,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
-import ScrollBox from "../components/scroll-box";
+import ScrollBox from "../../components/scroll-box";
+import { numberPicker } from "../../util/number-picker";
 
 const questions = [
   {
@@ -45,6 +47,7 @@ function SurveyPage() {
     questionId: number;
     direction: "forward" | "backward";
   }>({ questionId: 0, direction: "forward" });
+  const router = useRouter();
 
   const [answers, setAnswers] = useState<(number | undefined)[]>(
     Array.from({ length: questions.length }, (v, k) => undefined)
@@ -94,7 +97,15 @@ function SurveyPage() {
   };
 
   const getLottoNumber = () => {
-    alert(answers.map((answer) => answer === 0).join(" / "));
+    const input = answers.map((answer) => answer === 0);
+    const lottoNumber = numberPicker(input).sort((a, b) => a - b);
+
+    router.push({
+      pathname: "/survey/result",
+      query: {
+        numbers: JSON.stringify(lottoNumber),
+      },
+    });
   };
 
   return (
