@@ -45,7 +45,7 @@ function SurveyResultPage() {
               initial="hidden"
               animate="visible"
               variants={numberVariants}
-              transition={{ duration: 0.5, delay: 4.5 + index * 0.5 }}
+              transition={{ duration: 0.5, delay: 5.3 + index * 0.5 }}
             >
               {number}
             </motion.div>
