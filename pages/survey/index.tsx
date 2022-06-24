@@ -111,10 +111,7 @@ function SurveyPage() {
         <title>Survey | 6Numbers</title>
         <meta name="description" content="사용자 설문기반 로또 번호 생성" />
       </Head>
-      <div
-        className="flex flex-col items-center justify-center h-[100vh] overflow-hidden p-5"
-        tabIndex={0}
-      >
+      <div className="flex flex-col items-center justify-center h-[100vh] overflow-hidden p-5">
         <ScrollBox
           id={questionInfo.questionId}
           direction={questionInfo.direction}
@@ -136,7 +133,7 @@ function SurveyPage() {
             {questions[questionInfo.questionId].answers.map((answer, index) => (
               <div
                 key={answer}
-                className={`text-4xl mx-5 lg:mx-10 cursor-pointer font-semibold transition-all p-2 hover:bg-green-100 rounded-2xl ${
+                className={`text-4xl mx-5 lg:mx-10 cursor-pointer font-semibold transition-all p-2 md:hover:bg-green-100 rounded-2xl ${
                   answers[questionInfo.questionId] !== undefined &&
                   answers[questionInfo.questionId] === index &&
                   "bg-green-200 rounded-2xl"
