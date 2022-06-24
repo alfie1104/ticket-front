@@ -39,10 +39,10 @@ function Hero() {
         className="relative text-gray-200 px-10 py-5 hover:text-yellow-500 cursor-pointer transition-all text-center "
         onClick={handleClickMain}
       >
-        <span className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl block mb-10 font-bold">
+        <span className="text-5xl  md:text-6xl lg:text-8xl block mb-10 font-bold">
           My Universe Numbers
         </span>
-        <span className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl">
+        <span className="text-3xl md:text-4xl lg:text-5xl">
           우주와 나를 연결하는 여섯개의 번호
         </span>
       </p>
