@@ -32,11 +32,11 @@ function SurveyResultPage() {
   return (
     <>
       <Head>
-        <title>Survey Result | 6Numbers</title>
+        <title>Result | 6Numbers</title>
         <meta name="description" content="번호 생성 결과" />
       </Head>
       <div className="bg-gray-900 w-full h-[100vh] flex flex-col items-center justify-center">
-        <div className="text-white font-thin text-3xl text-center p-4">
+        <div className="text-white font-thin text-3xl text-center mb-5">
           {parsedNumbers &&
             parsedNumbers.map((number, index) => (
               <motion.span
@@ -56,7 +56,7 @@ function SurveyResultPage() {
           initial="hidden"
           animate="visible"
           transition={{ duration: 5, ease: "linear" }}
-          className="w-full mt-3"
+          className="w-full"
         ></motion.hr>
       </div>
     </>
