@@ -4,7 +4,7 @@ import { motion, Variants } from "framer-motion";
 
 const lineVariants: Variants = {
   enter: {
-    x: -1000,
+    x: -2000,
     opacity: 0,
   },
   center: {
@@ -42,7 +42,7 @@ function SurveyResultPage() {
         <meta name="description" content="번호 생성 결과" />
       </Head>
       <div className="bg-gray-900 w-full h-[100vh] flex flex-col items-center justify-center">
-        <div className="text-white font-semibold text-3xl text-center">
+        <div className="text-white font-thin text-3xl text-center">
           {parsedNumbers &&
             parsedNumbers.map((number, index) => (
               <motion.span
@@ -51,7 +51,7 @@ function SurveyResultPage() {
                 initial="enter"
                 animate="center"
                 variants={numberVariants}
-                transition={{ duration: 5 / (6 - index), delay: 1.5 }}
+                transition={{ duration: 0.5, delay: 4.5 + index * 0.5 }}
               >
                 {number}
               </motion.span>
@@ -61,7 +61,7 @@ function SurveyResultPage() {
             initial="enter"
             animate="center"
             transition={{ duration: 5 }}
-            className="w-[100vw] border-2 mt-3"
+            className="w-[100vw] mt-3"
           ></motion.hr>
         </div>
       </div>
