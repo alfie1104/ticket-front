@@ -6,7 +6,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import ScrollBox from "../../components/scroll-box";
 import { numberPicker } from "../../util/number-picker";
 
@@ -49,6 +49,23 @@ function SurveyPage() {
     Array.from({ length: questions.length }, (v, k) => undefined)
   );
 
+  useEffect(() => {
+    if (
+      questionInfo.questionId === questions.length - 1 &&
+      !answers.includes(undefined)
+    ) {
+      const input = answers.map((answer) => answer === 0);
+      const lottoNumber = numberPicker(input).sort((a, b) => a - b);
+
+      router.push({
+        pathname: "/survey/result",
+        query: {
+          numbers: JSON.stringify(lottoNumber),
+        },
+      });
+    }
+  }, [questionInfo.questionId, answers, router]);
+
   const handleScrollUp = (e: React.MouseEvent) => {
     e.preventDefault();
     setQuestionInfo((prev) => {
@@ -85,23 +102,7 @@ function SurveyPage() {
       return newArray;
     });
 
-    // if (questionId === questions.length - 1 && !answers.includes(undefined)) {
-    //   getLottoNumber();
-    // } else {
     handleScrollDown(e);
-    // }
-  };
-
-  const getLottoNumber = () => {
-    const input = answers.map((answer) => answer === 0);
-    const lottoNumber = numberPicker(input).sort((a, b) => a - b);
-
-    router.push({
-      pathname: "/survey/result",
-      query: {
-        numbers: JSON.stringify(lottoNumber),
-      },
-    });
   };
 
   return (
@@ -146,7 +147,7 @@ function SurveyPage() {
             ))}
           </div>
 
-          {questionInfo.questionId === questions.length - 1 &&
+          {/* {questionInfo.questionId === questions.length - 1 &&
             !answers.includes(undefined) && (
               <button
                 className="mt-5 cursor-pointer bg-blue-700 text-gray-100 p-2 text-lg font-semibold rounded-md"
@@ -154,7 +155,7 @@ function SurveyPage() {
               >
                 Get Lucky Numbers
               </button>
-            )}
+            )} */}
         </ScrollBox>
       </div>
       <div className="absolute bottom-12 right-12 flex items-center flex-col">
