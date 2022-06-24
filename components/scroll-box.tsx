@@ -40,7 +40,6 @@ const variants: Variants = {
     };
   },
   center: {
-    zIndex: 1,
     y: 0,
     opacity: 1,
   },
@@ -48,7 +47,7 @@ const variants: Variants = {
     return {
       y: direction === "forward" ? -1000 : 1000,
       opacity: 0,
-      zIndex: 0,
+      transition: { duration: 0.5 },
     };
   },
 };
