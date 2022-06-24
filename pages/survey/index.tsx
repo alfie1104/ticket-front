@@ -114,7 +114,7 @@ function SurveyPage() {
         <title>Survey | 6Numbers</title>
         <meta name="description" content="사용자 설문기반 로또 번호 생성" />
       </Head>
-      <div className="flex flex-col items-center justify-center h-[100vh] overflow-hidden">
+      <div className="flex flex-col items-center justify-center h-[100vh] overflow-hidden p-5">
         <ScrollBox
           id={questionInfo.questionId}
           direction={questionInfo.direction}
