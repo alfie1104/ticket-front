@@ -7,6 +7,7 @@ const shuffle = (array: number[], seed: number) => {
   }
   return newArray;
 };
+
 // 날짜(YYYMMDD)와 질문의 답변에 기반한 번호 picker
 const pick = (array: number[], answers: boolean[]) => {
   const today = +new Date().toISOString().substring(0, 10).replace(/-/g, "");
@@ -24,7 +25,12 @@ const pick = (array: number[], answers: boolean[]) => {
       if (answers[positionToAnswer]) {
         lottoNumbers.push(numbers[today % reminder]);
       } else {
-        lottoNumbers.push(numbers[reminder - (today % reminder)]);
+        let valIndex = reminder - (today % reminder);
+        if (valIndex === reminder) {
+          //today % reminder = 0인 경우, 1~(reminder-1)의 값중 랜덤 1개를 선택한다.
+          valIndex = Math.floor(Math.random() * (reminder - 1)) + 1;
+        }
+        lottoNumbers.push(numbers[valIndex]);
       }
     } else {
       numbers = array.slice(quotient * i, quotient * (i + 1));
@@ -32,18 +38,22 @@ const pick = (array: number[], answers: boolean[]) => {
       if (answers[positionToAnswer]) {
         lottoNumbers.push(numbers[today % quotient]);
       } else {
-        lottoNumbers.push(numbers[quotient - (today % quotient)]);
+        let valIndex = quotient - (today % quotient);
+        if (valIndex === quotient) {
+          //today % quotient = 0인 경우, 1~(quotient-1)의 값중 랜덤 1개를 선택한다.
+          valIndex = Math.floor(Math.random() * (quotient - 1)) + 1;
+        }
+        lottoNumbers.push(numbers[valIndex]);
       }
     }
   }
+
   return lottoNumbers;
 };
 
 export const numberPicker = (answers: boolean[]) => {
-  const NoL = [];
-  for (let i = 1; i < 46; i++) {
-    NoL.push(i);
-  }
+  const NoL = Array.from({ length: 45 }, (v, i) => i + 1);
+
   const today = new Date().getDate();
   const seed = today % 10;
   const shuffledNoL = shuffle(NoL, seed);
